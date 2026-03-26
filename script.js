@@ -65,12 +65,51 @@ sections.forEach(section => {
 });
 
 
-const aboutCard = document.getElementById("aboutCard");
 
-// Toggle ON/OFF on tap (mobile + desktop click)
+const aboutCard = document.getElementById("aboutCard");
+const aboutBg = aboutCard.querySelector(".about-bg");
+
+// KEEP your click behavior
 aboutCard.addEventListener("click", () => {
   aboutCard.classList.toggle("active");
 });
+
+// 🔥 Your slideshow images (use real school images if possible)
+const images = [
+  "https://res.cloudinary.com/dkhmpija5/image/upload/v1774347520/about_us_qetfpe.jpg",
+  "https://res.cloudinary.com/dkhmpija5/image/upload/v1774537969/bf57db38-151d-4ad0-800d-1d8a7a0d2d2c_2_o0jyfa.png",
+  "https://res.cloudinary.com/dkhmpija5/image/upload/v1774538334/1st_itaua2.jpg",
+  "https://res.cloudinary.com/dkhmpija5/image/upload/v1774538346/22_qcugm6.jpg"
+];
+
+let index = 0;
+
+// preload images (important for smoothness)
+images.forEach(src => {
+  const img = new Image();
+  img.src = src;
+});
+
+// set first image
+aboutBg.style.backgroundImage = `url(${images[index]})`;
+
+// 🔥 smooth fade slideshow
+setInterval(() => {
+  index = (index + 1) % images.length;
+
+  // fade out
+  aboutBg.style.opacity = "0";
+
+  setTimeout(() => {
+    aboutBg.style.backgroundImage = `url(${images[index]})`;
+
+    // fade in
+    aboutBg.style.opacity = "1";
+  }, 400);
+
+},3000); // change every 5 sec
+
+
 
 
 const cards = document.querySelectorAll(".premium-card");
@@ -96,5 +135,62 @@ ultraCards.forEach(card => {
 
     card.style.setProperty("--x", x + "px");
     card.style.setProperty("--y", y + "px");
+  });
+});
+
+
+
+
+
+function toggleButton(e, clickedBtn) {
+
+  // Allow redirect only for map button
+  if (!clickedBtn.classList.contains('map-btn')) {
+    e.preventDefault();
+  }
+
+  // Toggle active
+  if (clickedBtn.classList.contains('active')) {
+    clickedBtn.classList.remove('active');
+    return;
+  }
+
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  clickedBtn.classList.add('active');
+}
+
+
+const form = document.getElementById("contactForm");
+const successMessage = document.getElementById("successMessage");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault(); // stop default redirect
+
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      form.reset();
+      successMessage.style.display = "block";
+
+      // redirect after 3 seconds
+      setTimeout(() => {
+        window.location.href = "#home"; // OR your full link
+        // window.location.href = "https://pioneer-highschool.vercel.app/";
+      }, 3000);
+    } else {
+      alert("Something went wrong!");
+    }
+  })
+  .catch(() => {
+    alert("Error submitting form");
   });
 });
