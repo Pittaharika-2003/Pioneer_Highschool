@@ -209,36 +209,31 @@ body {
   gap: 15px;
 }
 
-/* BUTTON STYLE */
+/* BUTTON BASE */
 .btn {
   padding: 12px 24px;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
-}
-
-/* PRIMARY */
-.primary {
-  background: gold;
+  background: white;
   color: black;
-  box-shadow: 0 0 20px rgba(255,215,0,0.6);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* SECONDARY */
-.secondary {
-  border: 2px solid white;
+/* ACTIVE STATE (border style) */
+.btn.active {
+  background: transparent;
   color: white;
+  border: 2px solid white;
+  box-shadow: none;
+}
+
+/* HOVER ONLY WHEN NOT ACTIVE */
+.btn:hover:not(.active) {
   background: gold;
-
-}
-
-/* HOVER */
-.primary:hover {
-  background: white;
-}
-
-.secondary:hover {
-  background: white;
   color: black;
 }
 @media (max-width: 768px) {
@@ -310,6 +305,19 @@ body {
   background: url('https://res.cloudinary.com/dkhmpija5/image/upload/v1774347520/about_us_qetfpe.jpg') center/cover no-repeat;
   transition: 0.5s ease;
 }
+/* SLIDESHOW SMOOTH FADE + ZOOM */
+.about-bg {
+  animation: zoomEffect 12s ease-in-out infinite alternate;
+}
+
+@keyframes zoomEffect {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
 
 /* CONTENT */
 .about-content {
@@ -350,14 +358,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .about-points span {
   background: rgba(255,255,255,0.2);
   padding: 6px 12px;
   border-radius: 15px;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 /* DEFAULT HIDDEN */
@@ -429,14 +437,14 @@ body {
   text-align: center;
   color: white;
 }
-
-/* TITLE */
-.section-title {
+/* FIX PROVIDE TITLE VISIBILITY */
+.provide .section-title {
+  color: white !important;
   font-size: 42px;
   margin-bottom: 70px;
   position: relative;
-  color: whitesmoke;
 }
+
 
 .section-title::after {
   content: "";
@@ -611,17 +619,45 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
-/* CARD */
+/* CLEAN PROFESSIONAL CARD */
 .why-card {
-  background: white;
+  background: #f8f9fc; /* soft light (not pure white) */
   padding: 30px;
   border-radius: 20px;
+
   transition: 0.4s ease;
   position: relative;
   overflow: hidden;
   text-align: center;
 
   border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* TEXT CLEAR VISIBILITY */
+.why-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #0a1f44;
+  font-weight: 600;
+}
+
+.why-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444; /* darker for better readability */
+}
+
+/* HOVER (SOFT + PREMIUM) */
+.why-card:hover {
+  transform: translateY(-10px);
+  background: #0a1f44;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* TEXT ON HOVER */
+.why-card:hover h3,
+.why-card:hover p {
+  color: #ffffff;
 }
 
 /* ICON */
@@ -646,12 +682,6 @@ body {
   color: #555;   /* 🔥 FIXED VISIBILITY */
 }
 
-/* HOVER EFFECT */
-.why-card:hover {
-  transform: translateY(-10px);
-  background: #0a1f44;
-}
-
 /* TEXT ON HOVER */
 .why-card:hover h3,
 .why-card:hover p {
@@ -669,24 +699,11 @@ body {
   position: absolute;
   inset: 0;
   border-radius: 18px;
-  background: linear-gradient(120deg, transparent, gold, transparent);
+  background: linear-gradient(120deg, transparent, rgb(255, 255, 255), transparent);
   opacity: 0;
   transition: 0.4s;
 }
 
-/* MOUSE LIGHT */
-.ultra-card::after {
-  content: "";
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 70%);
-  top: var(--y, 50%);
-  left: var(--x, 50%);
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: 0.3s;
-}
 
 /* HOVER */
 .ultra-card:hover {
@@ -1180,6 +1197,10 @@ body {
   background: #0a1f44;
   color: white;
 }
+.admission-card h4{
+ padding-bottom: 10px;
+}
+ 
 
 /* LIST */
 .admission-card ul li {
@@ -1443,3 +1464,4 @@ body {
   }
 
 }
+
