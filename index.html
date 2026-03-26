@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>pioneer High School</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -48,9 +48,21 @@
     </p>
 
     <div class="hero-buttons">
-      <a href="#" class="btn primary">Visit Our School</a>
-      <a href="#" class="btn secondary">Book Admission</a>
-    </div>
+
+  <a href="https://share.google/tLzbr07QLoFxnqGEJ"
+     target="_blank"
+     class="btn map-btn"
+     onclick="toggleButton(event, this)">
+     Visit Our School
+  </a>
+
+  <a href="#contact"
+     class="btn"
+     onclick="toggleButton(event, this)">
+     Book your Admission
+  </a>
+
+</div>
   </div>
 
 </section>   
@@ -77,10 +89,10 @@
       </p>
 
       <div class="about-points">
-        <span>✔ Experienced Faculty</span>
-        <span>✔ Smart Classrooms</span>
-        <span>✔ Sports & Activities</span>
-        <span>✔ Safe Campus</span>
+        <span> Experienced Faculty</span>
+        <span> Smart Classrooms</span>
+        <span> Sports & Activities</span>
+        <span> Safe Campus</span>
       </div>
     </div>
 
@@ -167,7 +179,7 @@
 
     <!-- CARD 1 -->
     <div class="facility-card">
-      <img src="https://images.unsplash.com/photo-1588072432836-e10032774350" alt="">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774538564/sc_xi7xzg.png" alt="">
       <div class="overlay">
         <h3>Smart Classrooms</h3>
         <p>Interactive digital learning with modern technology.</p>
@@ -176,7 +188,7 @@
 
     <!-- CARD 2 -->
     <div class="facility-card">
-      <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232" alt="">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/039/302/250/small/ai-generated-back-to-school-science-lab-excitement-highlight-the-excitement-of-a-science-experiment-in-a-laboratory-setting-background-image-generative-ai-photo.jpg" alt="">
       <div class="overlay">
         <h3>Science Labs</h3>
         <p>Well-equipped labs for practical and experimental learning.</p>
@@ -194,7 +206,7 @@
 
     <!-- CARD 4 -->
     <div class="facility-card">
-      <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e" alt="">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774538432/sports_sfsbs6.png" alt="">
       <div class="overlay">
         <h3>Sports Facilities</h3>
         <p>Encouraging fitness through indoor & outdoor activities.</p>
@@ -260,15 +272,14 @@
       </p>
 
       <ul class="steps">
-        <li>✔ Fill out the application form</li>
-        <li>✔ Submit required documents</li>
-        <li>✔ Attend interaction / assessment</li>
-        <li>✔ Confirm admission</li>
+        <li> Fill out the application form</li>
+        <li> Submit required documents</li>
+        <li> Attend interaction / assessment</li>
+        <li> Confirm admission</li>
       </ul>
 
       <div class="buttons">
-        <a href="#" class="btn primary">Apply Now</a>
-        <a href="#" class="btn secondary">Download Prospectus</a>
+        <a href="#contact" class="btn primary">Apply Now</a>
       </div>
 
     </div>
@@ -324,16 +335,30 @@
     <!-- RIGHT FORM -->
     <div class="contact-form">
 
-      <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <input type="text" placeholder="Subject">
-        <textarea placeholder="Your Message" rows="5"></textarea>
+      <form action="https://formsubmit.co/pittaharivyshu@gmail.com" method="POST" id="contactForm">
 
-        <button type="submit">Send Message</button>
-      </form>
+  <input type="text" name="Name" placeholder="Your Name" required>
+
+  <input type="email" name="Email" placeholder="Your Email" required>
+
+  <input type="text" name="Subject" placeholder="Subject">
+
+  <textarea name="Message" placeholder="Your Message" rows="5" required></textarea>
+
+  <!-- SETTINGS -->
+  <input type="hidden" name="_subject" value="New Inquiry - Pioneer High School">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+
+  <button type="submit">Send Message</button>
+
+</form>
+
 
     </div>
+    <div id="successMessage" style="display:none; text-align:center; margin-top:20px; color:green;">
+  ✅ Thank you for submitting the form! Redirecting to homepage...
+</div>
 
   </div>
 
@@ -376,8 +401,8 @@
       <h3>Follow Us</h3>
 
       <div class="footer-socials">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#https://www.facebook.com/profile.php?id=61578535289705"><i class="fab fa-facebook-f"></i></a>
+        <a href="#https://www.instagram.com/pioneerhighschool2026/"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fab fa-youtube"></i></a>
         <a href="#"><i class="fab fa-linkedin-in"></i></a>
       </div>
