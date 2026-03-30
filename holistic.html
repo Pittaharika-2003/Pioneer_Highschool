@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Holistic Development</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#f9fafc;
+  color:#222;
+}
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  width: 100%; /* FIXED */
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 12px 5%; /* reduced for balance */
+  transition: all 0.4s ease;
+}
+
+/* SCROLL EFFECT */
+.navbar.scrolled {
+  background: #0a1f44;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* CONTAINER */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo img {
+  height: 60px;
+}
+
+/* NAV LINKS DESKTOP */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* HOVER UNDERLINE */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: gold;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE LINK */
+.nav-links a.active {
+  color: gold;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: #0a1f44; /* DARK color so it shows */
+  cursor: pointer;
+  z-index: 1100; /* IMPORTANT: bring above everything */
+  position: relative;
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 12px 4%; /* tighter padding */
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 28px;
+    color: black;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    right: -100%;
+    flex-direction: column;
+    background: #0a1f44;
+    width: 220px;
+    text-align: center;
+    padding: 20px 0;
+    transition: 0.3s ease;
+    border-radius: 8px;
+  }
+
+  .nav-links a {
+    color: white;
+  }
+
+  .nav-links.active {
+    right: 10px; /* FIXED: not touching edge */
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+}
+/* SECTION */
+.section{
+  padding:50px 8%;
+}
+
+/* ================= MAIN ================= */
+.main{
+  display:flex;
+  align-items:center;
+  gap:40px;
+  flex-wrap:wrap;
+  padding-top: 100px;
+}
+
+.main-text{
+  flex:1;
+}
+
+.main-text h1{
+  font-size:34px;
+  margin-bottom:15px;
+}
+
+.main-text p{
+  margin-bottom:12px;
+  color:#555;
+  line-height:1.7;
+}
+
+.main-img{
+  flex:1;
+}
+
+.main-img img{
+  width:100%;
+  border-radius:10px;
+}
+
+/* ================= ABOUT ================= */
+.about{
+  position:relative;
+  height:400px;
+  border-radius:12px;
+  overflow:hidden;
+  cursor:pointer;
+}
+
+.about img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.4s;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:20px;
+  opacity:0;
+  transition:0.4s;
+  z-index:2;
+  align-items: center;
+}
+
+.overlay h2{
+  margin-bottom:10px;
+}
+
+.overlay p{
+  font-size:14px;
+  line-height:1.6;
+  text-align: center;
+}
+
+.overlay ul{
+  margin-top:10px;
+  padding-left:18px;
+}
+
+.overlay li{
+  margin-bottom:6px;
+  font-size:14px;
+}
+
+/* DESKTOP HOVER */
+@media (hover:hover){
+  .about:hover .overlay{
+    opacity:1;
+  }
+}
+
+/* MOBILE ACTIVE */
+.about.active .overlay{
+  opacity:1;
+}
+
+.about.active img{
+  transform:scale(1.05);
+}
+
+/* ================= FEATURES ================= */
+.features h2{
+  margin-bottom:20px;
+  font-size:26px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:10px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:12px;
+}
+
+.card h3{
+  font-size:16px;
+  margin-bottom:6px;
+}
+
+.card p{
+  font-size:14px;
+  color:#555;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .main{
+    flex-direction:column;
+  }
+
+  .main-text h1{
+    font-size:26px;
+  }
+}
+</style>
+</head>
+
+<body>
+<nav class="navbar">
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774356568/WhatsApp_Image_2026-03-13_at_5.17.28_PM-Photoroomk_1_zkd64p.png" alt="School Logo">
+    </div>
+
+    <!-- LINKS -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#home" class="nav-link active">Home</a></li>
+      <li><a href="index.html#about" class="nav-link">About</a></li>
+      <li><a href="index.html#academics" class="nav-link">Academics</a></li>
+      <li><a href="index.html#facilities" class="nav-link">Facilities</a></li>
+      <li><a href="index.html#admissions" class="nav-link">Admissions</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <!-- MOBILE -->
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+  </div>
+</nav>
+
+
+<!-- ================= MAIN ================= -->
+<section class="section main">
+
+  <div class="main-text">
+    <h1>Holistic Development</h1>
+
+    <p>
+      At our institution, we believe that education goes beyond academics. Holistic 
+      development focuses on nurturing the intellectual, emotional, social, and 
+      physical growth of every student.
+    </p>
+
+    <p>
+      We provide a balanced learning environment where students are encouraged to 
+      explore their talents, participate in extracurricular activities, and develop 
+      essential life skills.
+    </p>
+
+    <p>
+      Through a combination of academics, sports, arts, and leadership opportunities, 
+      we ensure that students grow into confident, responsible, and well-rounded individuals.
+    </p>
+  </div>
+
+  <div class="main-img">
+    <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774854023/happy-kids-elementary-school2_ep5n3w.jpg">
+  </div>
+
+</section>
+
+<!-- ================= WHAT WE OFFER ================= -->
+<section class="section">
+
+  <div class="about" id="aboutCard">
+
+    <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774538334/1st_itaua2.jpg">
+
+    <div class="overlay">
+      <h2>Development Programs</h2>
+
+      <p>
+        Our holistic development programs are designed to enhance every aspect of a 
+        student’s personality.<br> We focus on building confidence, creativity, teamwork, 
+        and leadership skills through diverse activities.
+      </p>
+
+      <ul>
+        <li>Sports and physical fitness programs</li>
+        <li>Arts, music, and cultural activities</li>
+        <li>Leadership and personality development</li>
+        <li>Teamwork and communication skill building</li>
+        <li>Workshops and extracurricular competitions</li>
+      </ul>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="section features">
+
+  <h2>Key Development Features</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774853313/bfyl_fw7a_211213_psivp8.jpg">
+      <div class="card-content">
+        <h3>Sports Activities</h3>
+        <p>Encouraging physical fitness and teamwork through sports.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774854072/f42a_oia9_200303_i2trpn.jpg">
+      <div class="card-content">
+        <h3>Creative Arts</h3>
+        <p>Music, dance, and arts to nurture creativity and talent.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774854051/6253235_vgnljt.jpg">
+      <div class="card-content">
+        <h3>Leadership Skills</h3>
+        <p>Building confidence and leadership qualities in students.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+// MOBILE MENU
+const menuToggle = document.getElementById("menuToggle");
+const navContainer = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  navContainer.classList.toggle("active");
+});
+
+// SMOOTH SCROLL
+document.addEventListener("DOMContentLoaded", function () {
+
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.offsetHeight;
+
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+
+  });
+
+});
+
+// 🔥 PERFECT SCROLL SPY (FINAL FIX)
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-link");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + entry.target.id) {
+          link.classList.add("active");
+        }
+      });
+
+    }
+  });
+}, {
+  threshold: 0.6   // 👈 important (60% visible = active)
+});
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+
+
+
+
+
+const about = document.getElementById("aboutCard");
+
+about.addEventListener("click", function(e) {
+  e.stopPropagation();
+  this.classList.toggle("active");
+});
+
+document.addEventListener("click", function(e){
+  if(!about.contains(e.target)){
+    about.classList.remove("active");
+  }
+});
+</script>
+
+</body>
+</html>

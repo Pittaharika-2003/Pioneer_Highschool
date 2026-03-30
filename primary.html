@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Primary School</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#f9fafc;
+  color:#222;
+}
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  width: 100%; /* FIXED */
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 12px 5%; /* reduced for balance */
+  transition: all 0.4s ease;
+}
+
+/* SCROLL EFFECT */
+.navbar.scrolled {
+  background: #0a1f44;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* CONTAINER */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo img {
+  height: 60px;
+}
+
+/* NAV LINKS DESKTOP */
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* HOVER UNDERLINE */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: gold;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE LINK */
+.nav-links a.active {
+  color: gold;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: #0a1f44; /* DARK color so it shows */
+  cursor: pointer;
+  z-index: 1100; /* IMPORTANT: bring above everything */
+  position: relative;
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 12px 4%; /* tighter padding */
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 28px;
+    color: black;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    right: -100%;
+    flex-direction: column;
+    background: #0a1f44;
+    width: 220px;
+    text-align: center;
+    padding: 20px 0;
+    transition: 0.3s ease;
+    border-radius: 8px;
+  }
+
+  .nav-links a {
+    color: white;
+  }
+
+  .nav-links.active {
+    right: 10px; /* FIXED: not touching edge */
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+}
+/* SECTION */
+.section{
+  padding:50px 8%;
+}
+
+/* HERO */
+.hero{
+  display:flex;
+  align-items:center;
+  gap:40px;
+  flex-wrap:wrap;
+  padding-top: 100px;
+}
+
+.hero-text{
+  flex:1;
+}
+
+.hero-text h1{
+  font-size:34px;
+  margin-bottom:15px;
+}
+
+.hero-text p{
+  margin-bottom:12px;
+  color:#555;
+  line-height:1.7;
+}
+
+.hero-img{
+  flex:1;
+}
+
+.hero-img img{
+  width:100%;
+  border-radius:10px;
+}
+
+/* ACTIVITIES */
+.activities h2{
+  font-size:26px;
+  margin-bottom:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:20px;
+}
+.card{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+
+.card-content{
+  flex-grow:1;
+}
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:10px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.card img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:12px;
+}
+
+.card h3{
+  font-size:16px;
+  margin-bottom:6px;
+}
+
+.card p{
+  font-size:14px;
+  color:#555;
+}
+@media(max-width:992px){
+  .grid{
+    grid-template-columns:repeat(2, 1fr);
+  }
+}
+
+@media(max-width:576px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+/* MOBILE */
+@media(max-width:768px){
+  .hero{
+    flex-direction:column;
+  }
+
+  .hero-text h1{
+    font-size:26px;
+  }
+}
+</style>
+</head>
+
+<body>
+<nav class="navbar">
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774356568/WhatsApp_Image_2026-03-13_at_5.17.28_PM-Photoroomk_1_zkd64p.png" alt="School Logo">
+    </div>
+
+    <!-- LINKS -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#home" class="nav-link active">Home</a></li>
+      <li><a href="index.html#about" class="nav-link">About</a></li>
+      <li><a href="index.html#academics" class="nav-link">Academics</a></li>
+      <li><a href="index.html#facilities" class="nav-link">Facilities</a></li>
+      <li><a href="index.html#admissions" class="nav-link">Admissions</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <!-- MOBILE -->
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="section hero">
+
+  <div class="hero-text">
+    <h1>Primary School (Nursery to 2nd Class)</h1>
+
+    <p>
+      Our primary school program is designed for young learners from nursery to 
+      second class, focusing on building strong foundational skills in a fun 
+      and engaging environment.
+    </p>
+
+    <p>
+      We encourage creativity, curiosity, and confidence through activity-based 
+      learning methods that make education enjoyable and meaningful.
+    </p>
+
+    <p>
+      Our goal is to create a nurturing space where children feel safe, happy, 
+      and excited to learn every day.
+    </p>
+  </div>
+
+  <div class="hero-img">
+    <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774805081/happy-kids-elementary-school_1_vjyczk.jpg">
+  </div>
+
+</section>
+
+<!-- ACTIVITIES -->
+<section class="section activities">
+
+  <h2>Activities & Programs</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774853313/bfyl_fw7a_211213_psivp8.jpg">
+      <div class="card-content">
+        <h3>Sports Activities</h3>
+        <p>Fun physical activities to keep children active and healthy.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774851464/8887514_iod0au.jpg">
+      <div class="card-content">
+        <h3>Yoga Sessions</h3>
+        <p>Simple yoga practices to improve focus and well-being.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774851425/3784_jnpmmg.jpg">
+      <div class="card-content">
+        <h3>Cultural Activities</h3>
+        <p>Music, dance, and arts to enhance creativity.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774852967/sfgo_hhh0_220211_pider9.jpg">
+      <div class="card-content">
+        <h3>Science Fair</h3>
+        <p>Simple experiments to spark curiosity in young minds.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774851485/4979815_yh3vvg.jpg">
+      <div class="card-content">
+        <h3>Annual Day</h3>
+        <p>Celebrating student talents through performances.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774851509/28sf_tm6c_230329_fupcpz.jpg">
+      <div class="card-content">
+        <h3>Sports Day</h3>
+        <p>Exciting outdoor events promoting teamwork.</p>
+      </div>
+    </div>
+
+    <!-- ADDED PROPERLY (same structure) -->
+
+    <div class="card">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774852462/15595_v3csq7.jpg">
+      <div class="card-content">
+        <h3>Abacus Training</h3>
+        <p>Enhances mental math skills, memory, and concentration.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1774851444/7743683_epanjy.jpg">
+      <div class="card-content">
+        <h3>Dance Programs</h3>
+        <p>Encourages creativity, rhythm, and self-expression.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+<script>
+    // MOBILE MENU
+const menuToggle = document.getElementById("menuToggle");
+const navContainer = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  navContainer.classList.toggle("active");
+});
+
+// SMOOTH SCROLL
+document.addEventListener("DOMContentLoaded", function () {
+
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.offsetHeight;
+
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+
+      if (link.getAttribute("href") === "#" + current) {
+        link.classList.add("active");
+      }
+    });
+
+  });
+
+});
+
+// 🔥 PERFECT SCROLL SPY (FINAL FIX)
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-link");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + entry.target.id) {
+          link.classList.add("active");
+        }
+      });
+
+    }
+  });
+}, {
+  threshold: 0.6   // 👈 important (60% visible = active)
+});
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+
+
+
+</script>
+</body>
+</html>
