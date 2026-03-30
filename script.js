@@ -194,3 +194,21 @@ form.addEventListener("submit", function(e) {
     alert("Error submitting form");
   });
 });
+
+
+const facilityCards = document.querySelectorAll('.facility-card');
+
+facilityCards.forEach(card => {
+  card.addEventListener('click', () => {
+
+    // Close all other cards
+    facilityCards.forEach(c => {
+      if (c !== card) {
+        c.classList.remove('active');
+      }
+    });
+
+    // Toggle current card
+    card.classList.toggle('active');
+  });
+});
