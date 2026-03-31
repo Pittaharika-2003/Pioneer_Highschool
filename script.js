@@ -212,3 +212,19 @@ facilityCards.forEach(card => {
     card.classList.toggle('active');
   });
 });
+
+const schoolType = document.getElementById("schoolType");
+const previousSchoolInput = document.getElementById("previousSchoolInput");
+
+schoolType.addEventListener("change", function () {
+
+  if (this.value === "Previous School") {
+    previousSchoolInput.style.display = "block";
+    previousSchoolInput.required = true;
+  } else {
+    previousSchoolInput.style.display = "none";
+    previousSchoolInput.required = false;
+    previousSchoolInput.value = "";
+  }
+
+});
