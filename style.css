@@ -1462,6 +1462,55 @@ body {
   font-size: 16px;
   font-weight: 600;
 }
+/* 📱 TRUST SECTION MOBILE */
+@media (max-width: 768px) {
+
+  .trust-section {
+    padding: 90px 5% 20px; /* reduce space */
+  }
+
+  .trust-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    gap: 20px;
+    text-align: center;
+  }
+
+  /* LEFT */
+  .trust-left h2 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  /* BRAND */
+  .trust-brand {
+    justify-content: center;
+  }
+
+  .trust-brand img {
+    height: 45px;
+  }
+
+  .trust-brand h1 {
+    font-size: 22px;
+  }
+
+  /* RIGHT */
+  .trust-right {
+    padding-bottom: 10px;
+  }
+
+  .trust-right h1 {
+    font-size: 60px;
+  }
+
+  .trust-right p {
+    font-size: 14px;
+  }
+
+}
 
 /* 🔥 ACHIEVEMENTS SECTION (WHITE CLEAN VERSION) */
 .achievements {
