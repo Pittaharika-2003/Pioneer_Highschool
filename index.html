@@ -89,36 +89,6 @@
   </div>
 
 </section> 
-<section class="achievements" id="achievements">
-
-  <h2 class="section-title">Our Achievements</h2>
-
-  <div class="achievements-container">
-
-    <!-- SSC -->
-    <div class="achievement-card">
-      <div class="achievement-number">582/600</div>
-      <h3>SSC Top Score</h3>
-      <p>Outstanding academic excellence achieved by our students.</p>
-    </div>
-
-    <!-- IIT -->
-    <div class="achievement-card">
-      <div class="achievement-number">AIR</div>
-      <h3>IIT Selections</h3>
-      <p>Students securing top ranks in IIT entrance examinations.</p>
-    </div>
-
-    <!-- NEET -->
-    <div class="achievement-card">
-      <div class="achievement-number">AIR</div>
-      <h3>NEET Results</h3>
-      <p>Excellent performance in NEET with national-level ranks.</p>
-    </div>
-
-  </div>
-
-</section> 
 
 <section class="about" id="about">
 
@@ -220,7 +190,7 @@
     </div>
 
     <!-- 4 -->
-    <div class="provide-card" onclick="location.href='faculty.html'">
+    <div class="provide-card" onclick="location.href=''">
       <div class="icon">👩‍🏫</div>
       <h3>Experienced Faculty</h3>
       <p>
@@ -242,6 +212,36 @@
   </div>
 
 </section>
+<section class="achievements" id="achievements">
+
+  <h2 class="section-title">Our Achievements</h2>
+
+  <div class="achievements-container">
+
+    <!-- SSC -->
+    <div class="achievement-card">
+      <div class="achievement-number">582/600</div>
+      <h3>SSC Top Score</h3>
+      <p>Outstanding academic excellence achieved by our students.</p>
+    </div>
+
+    <!-- IIT -->
+    <div class="achievement-card">
+      <div class="achievement-number">AIR</div>
+      <h3>IIT Selections</h3>
+      <p>Students securing top ranks in IIT entrance examinations.</p>
+    </div>
+
+    <!-- NEET -->
+    <div class="achievement-card">
+      <div class="achievement-number">AIR</div>
+      <h3>NEET Results</h3>
+      <p>Excellent performance in NEET with national-level ranks.</p>
+    </div>
+
+  </div>
+
+</section> 
 
 <section class="facilities" id="facilities">
 
@@ -413,13 +413,11 @@
 
   <input type="text" name="Name" placeholder="Student Name" required>
 
-  <input type="text" name="Class" placeholder="Class Applying For" required>
+  <input type="text" name="Parent Name" placeholder="Parent Name" required>
 
   <input type="text" name="Date of Birth" placeholder="date of birth" required>
 
-  <input type="text" name="Parent Name" placeholder="Parent Name" required>
-
-  <input type="text" name="Location" placeholder="Location" required>
+  <input type="text" name="Class" placeholder="Grade Applying For" required>
 
   <!-- Previous School Selection -->
   <select name="School Type" id="schoolType" required>
@@ -432,10 +430,14 @@
   <input type="text" 
          name="Previous School Name" 
          id="previousSchoolInput" 
-         placeholder="Enter Previous School Name"
+         placeholder="School Last Attended"
          style="display:none;">
 
   <input type="tel" name="Phone Number" placeholder="Phone Number" required>
+
+  <input type="text" name="Class" placeholder="Email Id" required>
+
+  <input type="text" name="Location" placeholder="Address" required>
 
   <!-- SETTINGS -->
   <input type="hidden" name="_subject" value="New Admission Inquiry">
